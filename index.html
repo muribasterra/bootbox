@@ -137,7 +137,7 @@
         </div>
     </div>
 
-    <div id="map"></div>
+    <div id="map" class="dark"></div>
     <div id="loading" style="display:block;">
         <div class="loading-indicator">
             <div class="progress progress-striped active">
@@ -272,7 +272,7 @@
         var map, boroughSearch = [], theaterSearch = [], museumSearch = [];
         
         // Basemap Layers
-        var mapquestOSM = L.tileLayer("http://c.tiles.mapbox.com/v3/landplanner.map-oxe99jxb/{z}/{x}/{y}.png", {
+        var mapquestOSM = L.tileLayer("http://c.tiles.mapbox.com/v3/examples.map-zgrqqx0w/{z}/{x}/{y}.png", {
             maxZoom: 19,
             subdomains: ["otile1", "otile2", "otile3", "otile4"],
             attribution: 'Tiles courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">. Map data (c) <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> contributors, CC-BY-SA.' 

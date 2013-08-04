@@ -292,9 +292,10 @@
         var boroughs = L.geoJson(null, {
             style: function (feature) {
                 return {
-                    color: 'black',
+                    color: '#006622',
                     fill: false,
-                    opacity: 1,
+                    weight: 1.5;
+                    opacity: 0.7,
                     clickable: false
                 };
             },
@@ -529,8 +530,8 @@
         var overlays = {
             "Boroughs": boroughs,
             "Subway Lines": subwayLines,
-            "<img src='img/theater.png' width='24' height='28'>&nbsp;Theaters": theaters,
-            "<img src='img/museum.png' width='24' height='28'>&nbsp;Museums": museums
+            "<img src='img/theater2.png' width='27' height='41'>&nbsp;Theaters": theaters,
+            "<img src='img/museum2.png' width='27' height=''>&nbsp;Museums": museums
         };
 
         var layerControl = L.control.layers(baseLayers, overlays, {

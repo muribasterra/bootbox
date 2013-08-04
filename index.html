@@ -12,9 +12,9 @@
     <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="css/bootstrap-glyphicons.css" rel="stylesheet" type="text/css"> <!--https://github.com/twbs/bootstrap-glyphicons-->
     <link href="css/typeahead.js-bootstrap.css" rel="stylesheet" type="text/css"> <!--https://github.com/jharding/typeahead.js-bootstrap.css-->
-    <link href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" rel="stylesheet" type="text/css">
+    <link href="http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css" rel="stylesheet" type="text/css">
     <!--[if lte IE 8]>
-        <link href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" rel="stylesheet" type="text/css">
+        <link href="http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.ie.css" rel="stylesheet" type="text/css">
         <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css" rel="stylesheet">
     <![endif]-->
 
@@ -128,7 +128,7 @@
                                     <li><a href="#" onclick="$('#loginModal').modal('show'); return false;"><i class="glyphicon glyphicon-user"></i>&nbsp;Login</a></li>
                             </ul>
                     </li>
-                    <li><a href="https://github.com/bmcbride/bootleaf" data-toggle="collapse" data-target=".nav-collapse.in"><i class="icon-github-alt" style="color: white"></i>&nbsp;Fork me on GitHub</a></li>
+                    <li><a href="https://github.com/wboykinm/bootbox" data-toggle="collapse" data-target=".nav-collapse.in"><i class="icon-github-alt" style="color: white"></i>&nbsp;Fork me on GitHub</a></li>
                 </ul>
                 <form class="navbar-form pull-right searchbox">
                     <input id="searchbox" type="text" class="form-control" style="width: 250px;" placeholder="Search">
@@ -267,7 +267,7 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/typeahead.min.js"></script> <!--https://github.com/twitter/typeahead.js/-->
-    <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+    <script type="text/javascript" src="http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js"></script>
     <script type="text/javascript">
         var map, boroughSearch = [], theaterSearch = [], museumSearch = [];
         
@@ -282,14 +282,11 @@
             subdomains: ["oatile1", "oatile2", "oatile3", "oatile4"],
             attribution: 'Tiles courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a>. Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency'
         });
-        var mapquestHYB = L.layerGroup([L.tileLayer("http://c.tiles.mapbox.com/v3/landplanner.map-qd1qeap9/{z}/{x}/{y}.png", {
+        var mapquestHYB = L.tileLayer("http://c.tiles.mapbox.com/v3/landplanner.map-qd1qeap9/{z}/{x}/{y}.png", {
             maxZoom: 18,
-            subdomains: ["oatile1", "oatile2", "oatile3", "oatile4"]
-        }), L.tileLayer("http://", {
-            maxZoom: 19,
             subdomains: ["oatile1", "oatile2", "oatile3", "oatile4"],
             attribution: 'Labels courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">. Map data (c) <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> contributors, CC-BY-SA. Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency'
-        })]);
+        });
         
         // Overlay Layers
         var boroughs = L.geoJson(null, {
@@ -507,7 +504,7 @@
         map = L.map("map", {
             zoom: 10,
             center: new L.LatLng(40.702222048446004, -73.979378),
-            layers: [mapquestOSM, boroughs, subwayLines, theaters]
+            layers: [mapquestHYB, boroughs, subwayLines, theaters]
         });
         // Hack to preserver layer order in Layer control
         map.removeLayer(subwayLines);
@@ -523,9 +520,10 @@
         };
         
         var baseLayers = {
-            "Streets": mapquestOSM,
-            "Imagery": mapquestOAM,
-            "Hybrid": mapquestHYB
+            "Streets": mapquestHYB,
+            "Terrain": mapquestOSM,
+            "Imagery": mapquestOAM
+            
         };
 
         var overlays = {

@@ -426,7 +426,7 @@
             pointToLayer: function (feature, latlng) {
                 return L.marker(latlng, {
                     icon: L.icon({
-                        iconUrl: 'img/theater.png',
+                        iconUrl: 'http://api.tiles.mapbox.com/v3/marker/pin-m-theatre+977146.png',
                         iconSize: [30, 70],
                         iconAnchor: [15, 35],
                         popupAnchor: [0, -35]
@@ -466,7 +466,7 @@
             pointToLayer: function (feature, latlng) {
                 return L.marker(latlng, {
                     icon: L.icon({
-                        iconUrl: 'img/museum.png',
+                        iconUrl: 'http://api.tiles.mapbox.com/v3/marker/pin-m-art-gallery+2c505f.png',
                         iconSize: [30, 70],
                         iconAnchor: [15, 35],
                         popupAnchor: [0, -35]
@@ -530,8 +530,8 @@
         var overlays = {
             "Boroughs": boroughs,
             "Subway Lines": subwayLines,
-            "<img src='img/theater2.png' width='27' height='41'>&nbsp;Theaters": theaters,
-            "<img src='img/museum2.png' width='27' height=''>&nbsp;Museums": museums
+            "Theaters": theaters,
+            "Museums": museums
         };
 
         var layerControl = L.control.layers(baseLayers, overlays, {

@@ -275,18 +275,17 @@
         var mapquestOSM = L.tileLayer("http://c.tiles.mapbox.com/v3/examples.map-zgrqqx0w/{z}/{x}/{y}.png", {
             maxZoom: 19,
             subdomains: ["otile1", "otile2", "otile3", "otile4"],
-            attribution: 'Tiles courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">. Map data (c) <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> contributors, CC-BY-SA.' 
+            attribution: 'Tiles by <a href="http://mapbox.com/" target="_blank">Mapbox</a>. Map data (c) <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> contributors, CC-BY-SA.' 
         });
         var mapquestOAM = L.tileLayer("http://b.tiles.mapbox.com/v3/landplanner.map-8dkjz8lt/{z}/{x}/{y}.png", {
             maxZoom: 18,
             subdomains: ["oatile1", "oatile2", "oatile3", "oatile4"],
-            attribution: 'Tiles courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a>. Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency'
+            attribution: 'Tiles by <a href="http://mapbox.com/" target="_blank">Mapbox</a>. Map data (c) <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> contributors, CC-BY-SA.'
         });
-        var mapquestHYB = L.tileLayer("http://c.tiles.mapbox.com/v3/landplanner.map-qd1qeap9/{z}/{x}/{y}.png", {
+        var mapquestHYB = L.tileLayer("http://c.tiles.mapbox.com/v3/examples.map-z2effxa8/{z}/{x}/{y}.png", {
             maxZoom: 18,
             subdomains: ["oatile1", "oatile2", "oatile3", "oatile4"],
-            attribution: 'Labels courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">. Map data (c) <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> contributors, CC-BY-SA. Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency'
-        });
+            attribution: 'Tiles by <a href="http://mapbox.com/" target="_blank">Mapbox</a>. Map data (c) <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> contributors, CC-BY-SA.'
         
         // Overlay Layers
         var boroughs = L.geoJson(null, {
